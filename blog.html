@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese');
+        @import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext');
+        body {
+            margin: 100;
+            min-width: 250px;
+            background-color: #a0d2eb;
+            font-family: helvetica, arial, sans-serif;
+            font-size: 16px;
+            /*padding-top: 330px;*/
+            @include transition(padding-top .5s ease);
+        }
+
+        /* Include the padding and border in an element's total width and height */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Remove margins and padding from the list */
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Style the list items */
+
+        ul li {
+            cursor: pointer;
+            position: relative;
+            padding: 12px 8px 12px 40px;
+            list-style-type: none;
+            background: #ddd;
+            font-size: 18px;
+            transition: 0.2s;
+
+            /* make the list items unselectable */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* Set all odd list items to a different color (zebra-stripes) */
+
+        ul li:nth-child(odd) {
+            background: #ddd;
+        }
+
+        /* Darker background-color on hover */
+
+        ul li:hover {
+            background: #101357;
+            color: white;
+        }
+
+        /* When clicked on, add a background color and strike out text */
+
+        ul li.checked {
+            background: #888;
+            color: #fff;
+            text-decoration: line-through;
+        }
+
+        /* Add a "checked" mark when clicked on */
+
+        ul li.checked::before {
+            content: '';
+            position: absolute;
+            border-color: #fff;
+            border-style: solid;
+            border-width: 0 2px 2px 0;
+            top: 10px;
+            left: 16px;
+            transform: rotate(45deg);
+            height: 15px;
+            width: 7px;
+        }
+
+        .header {
+            background-color: #3b4d61 ;
+            width: 100%;
+            height: 100px;
+            position: relative;
+            top: 0;
+            overflow: hidden;
+            padding: 30px 40px;
+            color: white;
+            text-align: center;
+            font-size: 30px;
+
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+</head>
+
+<body>
+    
+     <div class="p-3 mb-2 bg-primary text-white">
+    <div id="myDIV" class="header">
+    </div></div>
+      <div class="p-3 mb-2 bg-dark text-white">
+    <center>
+     <p>To read the following blogs kindly<a href="https://medium.com/@gokusenset1"> click here.</a></p> </div>
+    <ul id="myUL">
+    </ul>
+
+    <script>
+        // call the function to start execution
+        get();
+
+        // function that call the API to get the JSON data
+        async function get() {
+            var r = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@gokusenset1');
+            var data = await r.json();
+
+            // display your title in header
+            document.getElementById("myDIV").textContent = data['feed']['title'];
+
+            // iterate the array of items and call the newElement function which add the new list item
+            for (var i = 0; i < data['items'].length; i++) {
+                newElement(data['items'][i]['title']);
+            }
+        }
+
+        // Create a new list item when clicking on the "Add" button
+        function newElement(textContent) {
+            var li = document.createElement("li");
+            var t = document.createTextNode(textContent);
+            li.appendChild(t);
+            document.getElementById("myUL").appendChild(li);
+        }
+    </script>
+</body>
+
+</html>
