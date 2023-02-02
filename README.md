@@ -9,4 +9,4 @@
 - Compatible with all mobile devices and with a beautiful and pleasant user interface.
 
 
-[[![image.png](https://i.postimg.cc/5tXvYNps/image.png)](https://postimg.cc/5HMjDJhz)
+[![image.png](https://i.postimg.cc/5tXvYNps/image.png)](https://postimg.cc/5HMjDJhz)
