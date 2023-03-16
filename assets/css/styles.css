@@ -309,7 +309,7 @@ img {
 
 .skills__names {
   display: flex;
-  align-items: center;
+  align-items:left;
 }
 
 .skills__bar {
