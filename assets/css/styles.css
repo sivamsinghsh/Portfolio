@@ -199,7 +199,7 @@ img {
 
 .home__title {
   font-size: var(--big-font-size);
-  margin-bottom: var(--mb-5);
+  margin-bottom: var(--mb-2);
 }
 
 .home__title-color {
