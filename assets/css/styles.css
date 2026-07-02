@@ -190,7 +190,7 @@ img {
 .home {
   position: relative;
   row-gap: 5rem;
-  padding: 4rem 0 5rem;
+  padding: 4rem 1.3rem 5rem 1.3rem;
 }
 
 .home__data {
