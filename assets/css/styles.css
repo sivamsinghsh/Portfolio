@@ -102,8 +102,7 @@ img {
 .bd-grid {
   max-width: 1024px;
   display: grid;
-  margin-left: var(--mb-2);
-  margin-right: var(--mb-2);
+  padding: 0 1.5rem;
 }
 
 .l-header {
