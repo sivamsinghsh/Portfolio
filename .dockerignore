@@ -1,0 +1,12 @@
+# Lab 2: exclude local, generated, and secret files from the build context
+.git
+.gitignore
+.venv/
+venv/
+__pycache__/
+node_modules/
+*.log
+.env
+.env.*
+.vscode/
+README.md
